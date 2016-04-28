@@ -19,9 +19,6 @@ namespace test
     {
         public Form_Buchung_tätigen()
         {
-            CultureInfo cultureInfo = new CultureInfo("en-US",true);
-            Thread.CurrentThread.CurrentCulture = cultureInfo;
-            Thread.CurrentThread.CurrentUICulture = cultureInfo;
             InitializeComponent();
         }
         private void TextBox_Turnover_tax_TextChanged(object sender, EventArgs e)

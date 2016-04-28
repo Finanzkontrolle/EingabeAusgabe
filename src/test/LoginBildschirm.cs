@@ -54,9 +54,12 @@ namespace test
             if (count ==1)
             {
                 MessageBox.Show("Benutzername und Passwort waren korrekt");
+                
                 Buchhaltung.ShowDialog();
                 Close();
+              
             }
+            else
             if (count >1)
             {
                 MessageBox.Show("Benutzername und Passwort sind mehr als einmal vorhanden. Somit ist keine eindeutige Zuweisung möglich");
