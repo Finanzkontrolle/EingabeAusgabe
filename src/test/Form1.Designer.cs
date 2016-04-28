@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Buchhaltung));
             this.Button_Buchung_tätigen = new System.Windows.Forms.Button();
             this.Button_Einnahmen_bzw_Ausgaben_Rechnung = new System.Windows.Forms.Button();
             this.Button_Anlagenverzeichnis_ausgeben = new System.Windows.Forms.Button();
+            this.Butten_Fahrtenbuch_ausgeben = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Button_Buchung_tätigen
@@ -63,15 +65,26 @@
             this.Button_Anlagenverzeichnis_ausgeben.UseVisualStyleBackColor = true;
             this.Button_Anlagenverzeichnis_ausgeben.Click += new System.EventHandler(this.button3_Click);
             // 
+            // Butten_Fahrtenbuch_ausgeben
+            // 
+            this.Butten_Fahrtenbuch_ausgeben.Location = new System.Drawing.Point(12, 418);
+            this.Butten_Fahrtenbuch_ausgeben.Name = "Butten_Fahrtenbuch_ausgeben";
+            this.Butten_Fahrtenbuch_ausgeben.Size = new System.Drawing.Size(191, 131);
+            this.Butten_Fahrtenbuch_ausgeben.TabIndex = 3;
+            this.Butten_Fahrtenbuch_ausgeben.Text = "Fahrtenbuch ausgeben";
+            this.Butten_Fahrtenbuch_ausgeben.UseVisualStyleBackColor = true;
+            // 
             // Form_Buchhaltung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(568, 541);
+            this.Controls.Add(this.Butten_Fahrtenbuch_ausgeben);
             this.Controls.Add(this.Button_Anlagenverzeichnis_ausgeben);
             this.Controls.Add(this.Button_Einnahmen_bzw_Ausgaben_Rechnung);
             this.Controls.Add(this.Button_Buchung_tätigen);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form_Buchhaltung";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -87,6 +100,7 @@
         private System.Windows.Forms.Button Button_Buchung_tätigen;
         private System.Windows.Forms.Button Button_Einnahmen_bzw_Ausgaben_Rechnung;
         private System.Windows.Forms.Button Button_Anlagenverzeichnis_ausgeben;
+        private System.Windows.Forms.Button Butten_Fahrtenbuch_ausgeben;
     }
 }
 

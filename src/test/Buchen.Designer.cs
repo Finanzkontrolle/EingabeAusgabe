@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Buchung_tätigen));
             this.DateTimePicker_Date_of_receipt = new System.Windows.Forms.DateTimePicker();
             this.Label_Rechnungsdatum = new System.Windows.Forms.Label();
             this.Label_Eingangsdatum = new System.Windows.Forms.Label();
@@ -197,6 +198,7 @@
             this.Controls.Add(this.Label_Rechnungsdatum);
             this.Controls.Add(this.DateTimePicker_Date_of_receipt);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form_Buchung_tätigen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
