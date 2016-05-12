@@ -35,7 +35,8 @@ namespace test
             string connectionstring = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Paul\Desktop\EingabeAusgabe\EA_Datenbank.mdb;Persist Security Info=False;";
             using (OleDbConnection con = new OleDbConnection(connectionstring))
             {
-                using (OleDbCommand command = new OleDbCommand("select *  from Buchungen", con))
+                //
+                using (OleDbCommand command = new OleDbCommand("select * from Buchungen", con))
                 {
                     con.Open();
                     OleDbDataReader reader = command.ExecuteReader();
@@ -127,6 +128,26 @@ namespace test
             ((DataTable)dataGridView_Buchungsübersicht.DataSource).Rows.Clear();
             Daten_laden();
 
+        }
+        private void löschenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string connectionstring = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Paul\Desktop\EingabeAusgabe\EA_Datenbank.mdb;Persist Security Info=False;";
+                OleDbConnection con = new OleDbConnection(connectionstring);
+                con.Open();
+                string query = "delete from Buchungen where Belegnr= '"+textBox1.Text +"'";
+                OleDbCommand command = new OleDbCommand();
+                command.Connection = con;
+                command.CommandText = query;
+                command.ExecuteNonQuery();
+                MessageBox.Show("Buchung wurde gelöscht","Erfolgreich",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error  " + ex);
+            }
         }
     }
 }

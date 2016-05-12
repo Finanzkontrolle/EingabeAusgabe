@@ -22,8 +22,6 @@ namespace test
             Buchhaltung = new Form_Buchhaltung();
             con.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Paul\Desktop\EingabeAusgabe\EA_Datenbank.mdb;Persist Security Info=False;";
         }
-
-
         private void LoginBildschirm_Load(object sender, EventArgs e)
         {
             try
@@ -37,12 +35,32 @@ namespace test
                 MessageBox.Show("Error: " + ex);
             }
         }
+       public bool anmeldung;
         private void button1_Click(object sender, EventArgs e)
         {
             con.Open();
             OleDbCommand command = new OleDbCommand();
             command.Connection = con;
             command.CommandText = "select * from Login where Benutzername='" + TextBox_Benutzername.Text + "' and Passwort='" + TextBox_Passwort.Text + "'";
+
+            OleDbCommand command2 = new OleDbCommand();
+            command.Connection = con;
+            string cmdgetRechte = "select Rechte from Login where Benutzername='" + TextBox_Benutzername.Text + "' and Passwort='" + TextBox_Passwort.Text + "'";
+          
+            using (OleDbCommand cmd = new OleDbCommand(cmdgetRechte, con))
+            {
+                DataTable dt = new DataTable();
+                dt.Load(cmd.ExecuteReader());
+                anmeldung = Convert.ToBoolean(dt.Rows[0][0]);
+                if (anmeldung == true)
+                {
+                    MessageBox.Show("Administrator");
+                }
+                else
+                {
+                    MessageBox.Show("User");
+                }
+            }   
 
             OleDbDataReader reader = command.ExecuteReader();
             int count = 0;
@@ -53,9 +71,9 @@ namespace test
             if (count == 1)
             {
                 MessageBox.Show("Benutzername und Passwort waren korrekt");
-
+                con.Close();
+                Hide();
                 Buchhaltung.ShowDialog();
-                Close();
             }
             else
             if (count > 1)
@@ -73,6 +91,10 @@ namespace test
         private void Button_Verlassen_Click(object sender, EventArgs e)
         {
             Close();
+        }
+        private void TextBox_Passwort_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

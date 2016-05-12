@@ -27,6 +27,8 @@ namespace test
             verzeichnis = new Form_Anlagenverzeichnis();
             #endregion
             InitializeComponent();
+            Button_Buchung_tätigen.Hide();
+            Button_Einnahmen_bzw_Ausgaben_Rechnung.Hide();
         }
         private void button1_Click(object sender, EventArgs e)
         {
